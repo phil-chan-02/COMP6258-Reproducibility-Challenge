@@ -5,7 +5,7 @@
 <div align="center"><img width="450" src="framework.jpg"/></div>
 
 For more information,
-please visit https://transformer-doctor.github.io/.
+please visit https://model-lego.github.io/.
 
 ## Requirements
 
