@@ -9,11 +9,9 @@ def unpickle(file):
     return dict
 
 def cifar100_img(file_dir, loc_train, loc_test):
-    # 加载meta文件获取类别名称
     meta = unpickle(os.path.join(file_dir, 'meta'))
     fine_label_names = [label.decode('utf-8') for label in meta[b'fine_label_names']]
 
-    # 加载训练数据
     train_dict = unpickle(os.path.join(file_dir, 'train'))
     print('train is processing')
 
@@ -31,7 +29,6 @@ def cifar100_img(file_dir, loc_train, loc_test):
         cv2.imwrite(img_name, img)
     print('train is done')
 
-    # 加载测试数据
     test_dict = unpickle(os.path.join(file_dir, 'test'))
     print('test is processing')
 
@@ -51,14 +48,11 @@ def cifar100_img(file_dir, loc_train, loc_test):
     print('Finish transforming to image')
 
 if __name__ == '__main__':
-    # 输出目录
     loc_train = './autodl-tmp/data/cifar100/train/'
     loc_test = './autodl-tmp/data/cifar100/test/'
 
-    # 创建目录
     os.makedirs(loc_train, exist_ok=True)
     os.makedirs(loc_test, exist_ok=True)
 
-    # CIFAR-100 路径
     file_dir = './autodl-tmp/data/cifar-100-python'
     cifar100_img(file_dir, loc_train, loc_test)
