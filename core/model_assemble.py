@@ -1,3 +1,7 @@
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
 import torch
 import argparse
 
@@ -9,8 +13,8 @@ def main():
     parser.add_argument('--asse_path', default='', type=str, help='asse path')
     args = parser.parse_args()
 
-    model1 = torch.load(args.model1_path).cuda()
-    model2 = torch.load(args.model2_path).cuda()
+    model1 = torch.load(args.model1_path, weights_only=False).cuda()
+    model2 = torch.load(args.model2_path, weights_only=False).cuda()
 
     # architecture
     print('=================> Architecture Assembling')

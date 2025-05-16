@@ -1,6 +1,9 @@
 import os
 import argparse
 import time
+import sys
+from pathlib import Path
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 import torch
 from torch import nn
@@ -37,7 +40,7 @@ def main():
     # ----------------------------------------
     # trainer configuration
     # ----------------------------------------
-    state = torch.load(args.model_path)
+    state = torch.load(args.model_path, weights_only=False)
     if isinstance(state, collections.OrderedDict):
         model = models.load_model(args.model_name, num_classes=args.num_classes)
         model.load_state_dict(state)

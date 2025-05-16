@@ -1,9 +1,15 @@
 import os
 import argparse
 import numpy as np
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parents[1]))
+
 from tqdm import tqdm
 import torch
 import torch.nn as nn
+
 
 import models
 import loaders
@@ -153,7 +159,8 @@ def main():
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     if not os.path.exists(args.save_dir):
-        os.makedirs(os.path.join(args.save_dir, 'masks'))
+        os.makedirs(os.path.join(args.save_dir, '' \
+        ''))
         os.makedirs(os.path.join(args.save_dir, 'figs'))
 
     print('-' * 50)

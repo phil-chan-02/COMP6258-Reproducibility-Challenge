@@ -2,7 +2,11 @@ import os
 import argparse
 import shutil
 import time
+import sys
+from pathlib import Path
 from tqdm import tqdm
+
+sys.path.append(str(Path(__file__).resolve().parents[1]))
 
 import torch
 from torch import nn
@@ -150,4 +154,5 @@ def test(test_loader, model, criterion, device):
 
 
 if __name__ == '__main__':
+    # sys.path.append(str(Path(__file__).resolve().parents[1]))
     main()

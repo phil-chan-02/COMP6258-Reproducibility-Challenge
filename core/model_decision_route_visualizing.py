@@ -196,7 +196,7 @@ def main():
     mask_path = os.path.join(args.mask_dir, 'mask_layer{}.pt')
 
     if args.layers[0] == -1:
-        args.layers = [4, 3, 2, 1, 0]  # Please set manually
+        args.layers = [14, 13, 12, 11, 10, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]  # Please set manually
 
     layers_name = ['conv' for _ in range(2)] + ['linear' for _ in range(3)]  # Please set manually
 
@@ -207,7 +207,7 @@ def main():
             masks.append([mask_o])
 
         print(masks)
-        print(np.asarray(masks).shape)
+        # print(np.asarray(masks).shape)
         print(layers_name)
         draw_route(masks, layers_name)
 

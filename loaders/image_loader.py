@@ -102,8 +102,9 @@ def load_images(data_dir, data_name, data_type=None):
     assert data_transform is not None
 
     data_set = _get_set(data_dir, transform=data_transform)
+    print(len(data_set))
     data_loader = DataLoader(dataset=data_set,
-                             batch_size=256,
+                             batch_size=128,
                              num_workers=4,
                              shuffle=True)
 # ImageNet+VGG16: bs128->gpu26311->40days
