@@ -147,4 +147,6 @@ dmypy.json
 cython_debug/
 
 *.pth
+samples_cifar10/
+samples_cifar100/
 
